@@ -1,0 +1,5 @@
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu bionic main 
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu bionic main 
+
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu bionic main 
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu bionic main 
