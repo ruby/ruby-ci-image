@@ -1,30 +1,30 @@
-FROM ubuntu:bionic
+FROM ubuntu:bionic as assets
 MAINTAINER shyouhei@ruby-lang.org
-
-ADD assets/99apt.conf /etc/apt/apt.conf.d/
-ADD assets/99dpkg.cfg /etc/dpkg/dpkg.cfg.d/
-
-RUN apt-get update && apt-get install wget gnupg2 ca-certificates
-
-ADD assets/98gcc.list  /etc/apt/sources.list.d/
-ADD assets/99llvm.list /etc/apt/sources.list.d/
-
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-key adv \
-      --keyserver hkp://keyserver.ubuntu.com:80 \
-      --recv-keys 60C317803A41BA51845E371A1E9377A2BA9EF27F
-
+RUN apt-get update
+RUN apt-get install -y wget gnupg2 ca-certificates
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key \
   | apt-key add -
-
+RUN apt-key adv \
+    --keyserver hkp://keyserver.ubuntu.com:80 \
+    --recv-keys 60C317803A41BA51845E371A1E9377A2BA9EF27F
 RUN grep '^deb ' /etc/apt/sources.list \
   | sed 's/^deb /deb-src /' \
   | tee /etc/apt/sources.list.d/deb-src.list
-
 RUN dpkg --add-architecture i386
+ADD assets/99apt.conf /etc/apt/apt.conf.d/
+ADD assets/99dpkg.cfg /etc/dpkg/dpkg.cfg.d/
+ADD assets/98gcc.list  /etc/apt/sources.list.d/
+ADD assets/99llvm.list /etc/apt/sources.list.d/
 
-RUN apt-get update \
+FROM ubuntu:bionic
+MAINTAINER shyouhei@ruby-lang.org
+ENV DEBIAN_FRONTEND=noninteractive
+COPY --from=assets /etc/apt /etc/apt
+COPY --from=assets /etc/dpkg /etc/dpkg
+
+RUN set -ex \
+ && dpkg --add-architecture i386 \
+ && apt-get update \
  && apt-get install \
         gcc-4.8 g++-4.8  gcc-4.8-multilib g++-4.8-multilib \
         gcc-5   g++-5    gcc-5-multilib   g++-5-multilib \
@@ -57,6 +57,4 @@ RUN apt-get update \
         build-essential ruby \
         tzdata \
  && apt-get build-dep \
-        ruby2.5 ruby2.5:i386 \
- && apt-get upgrade \
- && apt-get autoremove
+        ruby2.5 ruby2.5:i386
