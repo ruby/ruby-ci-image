@@ -40,6 +40,7 @@ RUN set -ex \
         clang-8    libclang-8-dev   \
         clang-9    libclang-9-dev   \
         clang-10   libclang-10-dev  \
+        clang-11   libclang-11-dev  \
         libffi-dev libffi-dev:i386 libffi6:i386 \
         libgdbm-dev libgdbm-dev:i386 libgdbm5:i386 \
         libgmp-dev \
