@@ -22,40 +22,28 @@ ENV DEBIAN_FRONTEND=noninteractive
 COPY --from=assets /etc/apt /etc/apt
 COPY --from=assets /etc/dpkg /etc/dpkg
 
-RUN set -ex \
- && dpkg --add-architecture i386 \
- && apt-get update \
- && apt-get install \
-        gcc-4.8 g++-4.8  gcc-4.8-multilib g++-4.8-multilib \
-        gcc-5   g++-5    gcc-5-multilib   g++-5-multilib \
-        gcc-6   g++-6    gcc-6-multilib   g++-6-multilib \
-        gcc-7   g++-7    gcc-7-multilib   g++-7-multilib \
-        gcc-8   g++-8    gcc-8-multilib   g++-8-multilib \
-        gcc-9   g++-9    gcc-9-multilib   g++-9-multilib \
-        clang-3.9  libclang-3.9-dev \
-        clang-4.0  libclang-4.0-dev \
-        clang-5.0  libclang-5.0-dev \
-        clang-6.0  libclang-6.0-dev \
-        clang-7    libclang-7-dev   \
-        clang-8    libclang-8-dev   \
-        clang-9    libclang-9-dev   \
-        clang-10   libclang-10-dev  \
-        clang-11   libclang-11-dev  \
-        libffi-dev libffi-dev:i386 libffi6:i386 \
-        libgdbm-dev libgdbm-dev:i386 libgdbm5:i386 \
-        libgmp-dev \
+RUN set -ex             \
+ && apt-get update      \
+ && apt-get install     \
+        clang-3.9       \
+        clang-4.0       \
+        clang-5.0       \
+        clang-6.0       \
+        clang-7         \
+        clang-8         \
+        clang-9         \
+        clang-10        \
+        clang-11        \
+        gcc-4.8 g++-4.8 \
+        gcc-5   g++-5   \
+        gcc-6   g++-6   \
+        gcc-7   g++-7   \
+        gcc-8   g++-8   \
+        gcc-9   g++-9   \
+        doxygen         \
         libjemalloc-dev \
-        libncurses5-dev libncurses5-dev:i386 libncurses5:i386 \
-        libncursesw5-dev libncursesw5-dev:i386 \
-        libreadline6-dev libreadline6-dev:i386 libreadline7:i386 \
-        libssl-dev libssl-dev:i386 libssl1.1:i386 \
-        libyaml-dev \
-        linux-libc-dev:i386 \
-        zlib1g-dev zlib1g-dev:i386 zlib1g:i386 \
-        openssl \
-        valgrind \
-        doxygen \
-        build-essential ruby \
-        tzdata \
- && apt-get build-dep \
-        ruby2.5 ruby2.5:i386
+        openssl         \
+        ruby            \
+        tzdata          \
+        valgrind        \
+ && apt-get build-dep ruby2.5
