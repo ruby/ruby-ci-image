@@ -19,6 +19,7 @@ ADD assets/99llvm.list /etc/apt/sources.list.d/
 FROM ubuntu:bionic
 MAINTAINER shyouhei@ruby-lang.org
 ENV DEBIAN_FRONTEND=noninteractive
+COPY --from=assets /etc/ssl /etc/ssl
 COPY --from=assets /etc/apt /etc/apt
 COPY --from=assets /etc/dpkg /etc/dpkg
 
