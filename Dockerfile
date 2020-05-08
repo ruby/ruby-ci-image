@@ -41,6 +41,7 @@ RUN set -ex             \
         gcc-7   g++-7   \
         gcc-8   g++-8   \
         gcc-9   g++-9   \
+        gcc-10  g++-10  \
         doxygen         \
         libjemalloc-dev \
         openssl         \
