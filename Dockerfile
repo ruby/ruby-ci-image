@@ -35,6 +35,7 @@ RUN set -ex             \
         clang-9         \
         clang-10        \
         clang-11        \
+        clang-12        \
         gcc-4.8 g++-4.8 \
         gcc-5   g++-5   \
         gcc-6   g++-6   \
