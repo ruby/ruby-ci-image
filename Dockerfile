@@ -23,30 +23,30 @@ COPY --from=assets /etc/ssl /etc/ssl
 COPY --from=assets /etc/apt /etc/apt
 COPY --from=assets /etc/dpkg /etc/dpkg
 
-RUN set -ex             \
- && apt-get update      \
- && apt-get install     \
-        clang-3.9       \
-        clang-4.0       \
-        clang-5.0       \
-        clang-6.0       \
-        clang-7         \
-        clang-8         \
-        clang-9         \
-        clang-10        \
-        clang-11        \
-        clang-12        \
-        gcc-4.8 g++-4.8 \
-        gcc-5   g++-5   \
-        gcc-6   g++-6   \
-        gcc-7   g++-7   \
-        gcc-8   g++-8   \
-        gcc-9   g++-9   \
-        gcc-10  g++-10  \
-        doxygen         \
-        libjemalloc-dev \
-        openssl         \
-        ruby            \
-        tzdata          \
-        valgrind        \
+RUN set -ex                \
+ && apt-get update         \
+ && apt-get install        \
+        clang-3.9 llvm-3.9 \
+        clang-4.0 llvm-4.0 \
+        clang-5.0 llvm-5.0 \
+        clang-6.0 llvm-6.0 \
+        clang-7   llvm-7   \
+        clang-8   llvm-8   \
+        clang-9   llvm-9   \
+        clang-10  llvm-10  \
+        clang-11  llvm-11  \
+        clang-12  llvm-12  \
+        gcc-4.8   g++-4.8  \
+        gcc-5     g++-5    \
+        gcc-6     g++-6    \
+        gcc-7     g++-7    \
+        gcc-8     g++-8    \
+        gcc-9     g++-9    \
+        gcc-10    g++-10   \
+        doxygen            \
+        libjemalloc-dev    \
+        openssl            \
+        ruby               \
+        tzdata             \
+        valgrind           \
  && apt-get build-dep ruby2.5
