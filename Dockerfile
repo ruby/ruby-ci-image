@@ -43,6 +43,13 @@ RUN set -ex                                     \
         gcc-8     g++-8                         \
         gcc-9     g++-9                         \
         gcc-10    g++-10                        \
+        mingw-w64                               \
+        crossbuild-essential-arm64              \
+        crossbuild-essential-armel              \
+        crossbuild-essential-armhf              \
+        crossbuild-essential-powerpc            \
+        crossbuild-essential-ppc64el            \
+        crossbuild-essential-s390x              \
         doxygen                                 \
         libjemalloc-dev                         \
         openssl                                 \
