@@ -13,7 +13,7 @@ jobs:
       - uses: docker/build-push-action@v1
         with:
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ github.token }}
           registry: docker.pkg.github.com
           repository: ruby/ruby-ci-image/ci
           tag_with_ref: true
