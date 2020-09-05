@@ -16,5 +16,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.ACCESS_TOKEN }}
           registry: ghcr.io
-          repository: ruby/ruby-ci-image
+          repository: ${{ github.repository }}
           tag_with_ref: true
