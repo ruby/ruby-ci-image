@@ -1,0 +1,15 @@
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu focal main
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu focal  main
+deb http://apt.llvm.org/focal/ llvm-toolchain-focal-9 main
+deb http://apt.llvm.org/focal/ llvm-toolchain-focal-10 main
+deb http://apt.llvm.org/focal/ llvm-toolchain-focal-11 main
+deb http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main
+deb http://apt.llvm.org/focal/ llvm-toolchain-focal main
+
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu focal main
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu focal main
+deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-9 main
+deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-10 main
+deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-11 main
+deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main
+deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal main
