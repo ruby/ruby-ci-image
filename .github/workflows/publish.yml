@@ -26,6 +26,7 @@ jobs:
           - { os: 'bionic', baseruby: '2.5', tag: 'gcc-5',   extras: 'g++-5' }
           - { os: 'bionic', baseruby: '2.5', tag: 'gcc-4.8', extras: 'g++-4.8' }
 
+          - { os: 'focal',  baseruby: '2.7', tag: 'clang-14',  extras: 'llvm-14' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-13',  extras: 'llvm-13' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-12',  extras: 'llvm-12' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-11',  extras: 'llvm-11' }
