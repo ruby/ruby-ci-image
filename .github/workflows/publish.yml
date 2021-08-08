@@ -5,10 +5,11 @@ on:
     types: [published]
   push:
   schedule:
-    # Everyday 01:32 UTC, except Saturday and Sunday.  This timing is handy
-    # because while Europian counteries are in midnight, American countries are
-    # still in their evening and Asian countries are in the next morning.
-    - cron: '32 1 * * 1-5'
+
+    # Everyday Wednesday on 01:32 UTC.  This timing is handy because while
+    # European countries are in midnight, American countries are still in
+    # their evening and Asian countries are in the next morning.
+    - cron: '32 1 * * 3'
 
 jobs:
   push:
