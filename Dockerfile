@@ -33,8 +33,13 @@ COPY --from=assets /etc/ssl /etc/ssl
 COPY --from=assets /etc/apt /etc/apt
 COPY --from=assets /etc/dpkg /etc/dpkg
 
-RUN set -ex                                      \
- && apt-get update                               \
- && apt-get install ${packages}                  \
-    libjemalloc-dev openssl ruby tzdata valgrind \
- && apt-get build-dep ruby${baseruby}
+RUN apt-get update                               \
+ && apt-get install -y ${packages}                  \
+    libjemalloc-dev openssl ruby tzdata valgrind sudo \
+ && apt-get build-dep ruby${baseruby} \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN adduser --disabled-password --gecos '' ci && adduser ci sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+USER ci

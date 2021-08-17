@@ -26,8 +26,8 @@ jobs:
           - { os: 'bionic', baseruby: '2.5', tag: 'gcc-5',   extras: 'g++-5' }
           - { os: 'bionic', baseruby: '2.5', tag: 'gcc-4.8', extras: 'g++-4.8' }
 
-          - { os: 'focal',  baseruby: '2.7', tag: 'clang-14',  extras: 'llvm-14' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'clang-13',  extras: 'llvm-13' }
+          - { os: 'focal',  baseruby: '2.7', tag: 'clang-14',  extras: 'llvm-14', platforms: 'linux/amd64' }
+          - { os: 'focal',  baseruby: '2.7', tag: 'clang-13',  extras: 'llvm-13', platforms: 'linux/amd64' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-12',  extras: 'llvm-12' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-11',  extras: 'llvm-11' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-10',  extras: 'llvm-10' }
@@ -44,6 +44,8 @@ jobs:
           - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-ppc64el' }
           - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-s390x' }
 
+          - { os: 'focal', baseruby: '2.7', tag: 'build-essential', extras: 'libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev bison autoconf clang iproute2' }
+
     name: Publish ${{ matrix.entry.tag }}
     runs-on: ubuntu-latest
     steps:
@@ -53,7 +55,10 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
-      - uses: docker/setup-buildx-action@v1
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
       - uses: docker/login-action@v1
         with:
           username: ${{ github.actor }}
@@ -67,6 +72,7 @@ jobs:
             packages=${{ matrix.entry.tag }} ${{ matrix.entry.extras }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
+          platforms: ${{ matrix.entry.platforms || 'linux/amd64,linux/arm64' }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ghcr.io/${{ github.repository }}:${{ matrix.entry.tag }}
