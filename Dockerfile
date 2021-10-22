@@ -10,7 +10,7 @@ ARG version
 ARG variant
 
 RUN apt-get update
-RUN apt-get install -y wget gnupg2 ca-certificates
+RUN apt-get install -y wget gnupg2 ca-certificates sudo
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key \
   | apt-key add -
 RUN apt-key adv \
@@ -22,6 +22,7 @@ RUN grep '^deb ' /etc/apt/sources.list \
 ADD assets/99apt.conf /etc/apt/apt.conf.d/
 ADD assets/99dpkg.cfg /etc/dpkg/dpkg.cfg.d/
 ADD assets/99${version}.list /etc/apt/sources.list.d/
+ADD assets/sudoers /etc/sudoers.d/
 
 FROM ${os}:${version}${variant} as compilers
 ARG baseruby
@@ -32,6 +33,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 COPY --from=assets /etc/ssl /etc/ssl
 COPY --from=assets /etc/apt /etc/apt
 COPY --from=assets /etc/dpkg /etc/dpkg
+COPY --from=assets /etc/sudoers.d /etc/sudoers.d
 
 RUN set -ex                                           \
  && apt-get update                                    \
@@ -40,6 +42,5 @@ RUN set -ex                                           \
  && apt-get build-dep ruby${baseruby}
 
 RUN adduser --disabled-password --gecos '' ci && adduser ci sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER ci
