@@ -23,6 +23,7 @@ ADD assets/99apt.conf /etc/apt/apt.conf.d/
 ADD assets/99dpkg.cfg /etc/dpkg/dpkg.cfg.d/
 ADD assets/99${version}.list /etc/apt/sources.list.d/
 ADD assets/sudoers /etc/sudoers.d/
+RUN chmod 0440 /etc/sudoers.d/*
 
 FROM ${os}:${version}${variant} as compilers
 ARG baseruby
