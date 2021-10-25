@@ -40,10 +40,10 @@ jobs:
           - { os: 'bionic', baseruby: '2.5', tag: 'clang-4.0', extras: 'llvm-4.0' }
           - { os: 'bionic', baseruby: '2.5', tag: 'clang-3.9', extras: 'llvm-3.9' }
 
-          - { os: 'focal',   baseruby: '2.7', tag: 'mingw-w64' }
-          - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-arm64' }
-          - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-ppc64el' }
-          - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-s390x' }
+          - { os: 'focal',  baseruby: '2.7', tag: 'mingw-w64' }
+          - { os: 'focal',  baseruby: '2.7', tag: 'crossbuild-essential-arm64' }
+          - { os: 'focal',  baseruby: '2.7', tag: 'crossbuild-essential-ppc64el' }
+          - { os: 'focal',  baseruby: '2.7', tag: 'crossbuild-essential-s390x' }
 
     name: Publish ${{ matrix.entry.tag }}
     runs-on: ubuntu-latest
