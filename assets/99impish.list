@@ -1,0 +1,5 @@
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu impish main
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu impish main
+
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu impish main
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu impish main

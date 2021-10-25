@@ -1,0 +1,5 @@
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu hirsute main
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu hirsute main
+
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu hirsute main
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu hirsute main
