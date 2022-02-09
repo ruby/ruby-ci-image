@@ -27,6 +27,7 @@ jobs:
           - { os: 'bionic', baseruby: '2.5', tag: 'gcc-4.8', extras: 'g++-4.8' }
 
           # The clang-14, 13 arm64 are not available.
+          - { os: 'focal',  baseruby: '2.7', tag: 'clang-15',  extras: 'llvm-15', platforms: 'linux/amd64' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-14',  extras: 'llvm-14', platforms: 'linux/amd64' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-13',  extras: 'llvm-13', platforms: 'linux/amd64' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-12',  extras: 'llvm-12' }
