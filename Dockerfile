@@ -60,6 +60,7 @@ RUN set -ex                                           \
  && apt-get update                                    \
  && apt-get install ${packages}                       \
     libjemalloc-dev openssl ruby tzdata valgrind sudo \
+    libcapstone-dev                                   \
  && apt-get build-dep ruby${baseruby}
 
 RUN adduser --disabled-password --gecos '' ci && adduser ci sudo
