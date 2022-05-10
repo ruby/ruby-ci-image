@@ -39,7 +39,7 @@ COPY --from=assets /etc/sudoers.d /etc/sudoers.d
 RUN set -ex                                           \
  && apt-get update                                    \
  && apt-get install ${packages}                       \
-    libjemalloc-dev openssl libyaml-dev ruby tzdata valgrind sudo \
+    libjemalloc-dev openssl libyaml-dev ruby tzdata valgrind sudo docker.io \
  && apt-get build-dep ruby${baseruby}
 
 RUN adduser --disabled-password --gecos '' ci && adduser ci sudo
