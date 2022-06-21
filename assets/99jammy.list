@@ -1,0 +1,7 @@
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu jammy main
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu jammy main
+deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy main
+
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu jammy main
+deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu jammy main
+deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy main

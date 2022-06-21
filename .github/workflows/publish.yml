@@ -17,6 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         entry:
+          - { os: 'jammy',  baseruby: '3.0', tag: 'gcc-12',  extras: 'g++-12' }
           - { os: 'focal',  baseruby: '2.7', tag: 'gcc-11',  extras: 'g++-11' }
           - { os: 'focal',  baseruby: '2.7', tag: 'gcc-10',  extras: 'g++-10' }
           - { os: 'focal',  baseruby: '2.7', tag: 'gcc-9',   extras: 'g++-9' }
