@@ -40,6 +40,7 @@ RUN set -ex                                           \
  && apt-get update                                    \
  && apt-get install ${packages}                       \
     libjemalloc-dev openssl libyaml-dev ruby tzdata valgrind sudo docker.io \
+    libreadline-dev \
  && apt-get build-dep ruby${baseruby}
 
 RUN adduser --disabled-password --gecos '' ci && adduser ci sudo
