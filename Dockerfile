@@ -3,6 +3,7 @@ ARG version=
 ARG variant=
 ARG baseruby=
 ARG packages=
+ARG ruby_build=
 
 FROM ${os}:${version}${variant} as assets
 ARG os
@@ -39,9 +40,16 @@ COPY --from=assets /etc/sudoers.d /etc/sudoers.d
 RUN set -ex                                           \
  && apt-get update                                    \
  && apt-get install ${packages}                       \
-    libjemalloc-dev openssl libyaml-dev ruby tzdata valgrind sudo docker.io \
+    libjemalloc-dev openssl libyaml-dev tzdata valgrind sudo docker.io \
     libreadline-dev \
- && apt-get build-dep ruby${baseruby}
+ && apt-get build-dep ruby${baseruby} \
+ && if [ -n "${ruby_build}" ]; then \
+      git clone https://github.com/rbenv/ruby-build /tmp/ruby-build; \
+      /tmp/ruby-build/bin/ruby-build "${ruby_build}" /usr; \
+      rm -rf /tmp/ruby-build; \
+    else \
+      apt-get install ruby; \
+    fi
 
 RUN adduser --disabled-password --gecos '' ci && adduser ci sudo
 
