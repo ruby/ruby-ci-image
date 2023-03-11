@@ -23,9 +23,9 @@ jobs:
           - { os: 'focal',  baseruby: '2.7', tag: 'gcc-9',   extras: 'g++-9' }
           - { os: 'focal',  baseruby: '2.7', tag: 'gcc-8',   extras: 'g++-8' }
           - { os: 'focal',  baseruby: '2.7', tag: 'gcc-7',   extras: 'g++-7' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'gcc-6',   extras: 'g++-6' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'gcc-5',   extras: 'g++-5' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'gcc-4.8', extras: 'g++-4.8' }
+          - { os: 'bionic', baseruby: '2.5', tag: 'gcc-6',   extras: 'g++-6', ruby_build: '2.7.0' }
+          - { os: 'bionic', baseruby: '2.5', tag: 'gcc-5',   extras: 'g++-5', ruby_build: '2.7.0' }
+          - { os: 'bionic', baseruby: '2.5', tag: 'gcc-4.8', extras: 'g++-4.8', ruby_build: '2.7.0' }
 
           # The clang-14, 13 arm64 are not available.
           - { os: 'jammy',  baseruby: '3.0', tag: 'clang-16',  extras: 'llvm-16', platforms: 'linux/amd64' }
@@ -36,12 +36,12 @@ jobs:
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-11',  extras: 'llvm-11' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-10',  extras: 'llvm-10' }
           - { os: 'focal',  baseruby: '2.7', tag: 'clang-9',   extras: 'llvm-9' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-8',   extras: 'llvm-8' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-7',   extras: 'llvm-7' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-6.0', extras: 'llvm-6.0' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-5.0', extras: 'llvm-5.0' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-4.0', extras: 'llvm-4.0' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-3.9', extras: 'llvm-3.9' }
+          - { os: 'bionic', baseruby: '2.5', tag: 'clang-8',   extras: 'llvm-8', ruby_build: '2.7.0' }
+          - { os: 'bionic', baseruby: '2.5', tag: 'clang-7',   extras: 'llvm-7', ruby_build: '2.7.0' }
+          - { os: 'bionic', baseruby: '2.5', tag: 'clang-6.0', extras: 'llvm-6.0', ruby_build: '2.7.0' }
+          - { os: 'bionic', baseruby: '2.5', tag: 'clang-5.0', extras: 'llvm-5.0', ruby_build: '2.7.0' }
+          - { os: 'bionic', baseruby: '2.5', tag: 'clang-4.0', extras: 'llvm-4.0', ruby_build: '2.7.0' }
+          - { os: 'bionic', baseruby: '2.5', tag: 'clang-3.9', extras: 'llvm-3.9', ruby_build: '2.7.0' }
 
           - { os: 'focal',   baseruby: '2.7', tag: 'mingw-w64' }
           - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-arm64' }
@@ -64,6 +64,7 @@ jobs:
             version=${{ matrix.entry.os }}
             baseruby=${{ matrix.entry.baseruby }}
             packages=${{ matrix.entry.tag }} ${{ matrix.entry.extras }}
+            ruby_build=${{ matrix.entry.ruby_build }}
           cache-from: type=gha
           cache-to: type=gha
           platforms: ${{ matrix.entry.platforms || 'linux/amd64,linux/arm64' }}
