@@ -25,9 +25,6 @@ jobs:
           - { os: 'focal', baseruby: '2.7', tag: 'gcc-9',   extras: 'g++-9' }
           - { os: 'focal', baseruby: '2.7', tag: 'gcc-8',   extras: 'g++-8' }
           - { os: 'focal', baseruby: '2.7', tag: 'gcc-7',   extras: 'g++-7' }
-          - { os: 'focal', baseruby: '2.7', tag: 'gcc-6',   extras: 'g++-6' }
-          - { os: 'focal', baseruby: '2.7', tag: 'gcc-5',   extras: 'g++-5' }
-          - { os: 'focal', baseruby: '2.7', tag: 'gcc-4.8', extras: 'g++-4.8' }
 
           # The clang-14, 13 arm64 are not available.
           - { os: 'jammy', baseruby: '3.0', tag: 'clang-17',  extras: 'llvm-17', platforms: 'linux/amd64' }
@@ -42,9 +39,6 @@ jobs:
           - { os: 'focal', baseruby: '2.7', tag: 'clang-8',   extras: 'llvm-8' }
           - { os: 'focal', baseruby: '2.7', tag: 'clang-7',   extras: 'llvm-7' }
           - { os: 'focal', baseruby: '2.7', tag: 'clang-6.0', extras: 'llvm-6.0' }
-          - { os: 'focal', baseruby: '2.7', tag: 'clang-5.0', extras: 'llvm-5.0' }
-          - { os: 'focal', baseruby: '2.7', tag: 'clang-4.0', extras: 'llvm-4.0' }
-          - { os: 'focal', baseruby: '2.7', tag: 'clang-3.9', extras: 'llvm-3.9' }
 
           - { os: 'focal',   baseruby: '2.7', tag: 'mingw-w64' }
           - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-arm64' }
