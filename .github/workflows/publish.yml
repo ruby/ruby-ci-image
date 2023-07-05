@@ -17,29 +17,27 @@ jobs:
       fail-fast: false
       matrix:
         entry:
-          - { os: 'focal',  baseruby: '2.7', tag: 'gcc-11',  extras: 'g++-11' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'gcc-10',  extras: 'g++-10' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'gcc-9',   extras: 'g++-9' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'gcc-8',   extras: 'g++-8' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'gcc-7',   extras: 'g++-7' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'gcc-6',   extras: 'g++-6' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'gcc-5',   extras: 'g++-5' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'gcc-4.8', extras: 'g++-4.8' }
+          - { os: 'lunar', baseruby: '3.1', tag: 'gcc-13',  extras: 'g++-13' }
+          - { os: 'jammy', baseruby: '3.0', tag: 'gcc-12',  extras: 'g++-12' }
+          - { os: 'focal', baseruby: '2.7', tag: 'gcc-11',  extras: 'g++-11' }
+          - { os: 'focal', baseruby: '2.7', tag: 'gcc-10',  extras: 'g++-10' }
+          - { os: 'focal', baseruby: '2.7', tag: 'gcc-9',   extras: 'g++-9' }
+          - { os: 'focal', baseruby: '2.7', tag: 'gcc-8',   extras: 'g++-8' }
+          - { os: 'focal', baseruby: '2.7', tag: 'gcc-7',   extras: 'g++-7' }
 
           # The clang-14, 13 arm64 are not available.
-          - { os: 'focal',  baseruby: '2.7', tag: 'clang-15',  extras: 'llvm-15', platforms: 'linux/amd64' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'clang-14',  extras: 'llvm-14', platforms: 'linux/amd64' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'clang-13',  extras: 'llvm-13', platforms: 'linux/amd64' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'clang-12',  extras: 'llvm-12' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'clang-11',  extras: 'llvm-11' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'clang-10',  extras: 'llvm-10' }
-          - { os: 'focal',  baseruby: '2.7', tag: 'clang-9',   extras: 'llvm-9' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-8',   extras: 'llvm-8' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-7',   extras: 'llvm-7' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-6.0', extras: 'llvm-6.0' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-5.0', extras: 'llvm-5.0' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-4.0', extras: 'llvm-4.0' }
-          - { os: 'bionic', baseruby: '2.5', tag: 'clang-3.9', extras: 'llvm-3.9' }
+          - { os: 'jammy', baseruby: '3.0', tag: 'clang-17',  extras: 'llvm-17', platforms: 'linux/amd64' }
+          - { os: 'jammy', baseruby: '3.0', tag: 'clang-16',  extras: 'llvm-16', platforms: 'linux/amd64' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-15',  extras: 'llvm-15', platforms: 'linux/amd64' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-14',  extras: 'llvm-14', platforms: 'linux/amd64' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-13',  extras: 'llvm-13', platforms: 'linux/amd64' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-12',  extras: 'llvm-12' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-11',  extras: 'llvm-11' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-10',  extras: 'llvm-10' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-9',   extras: 'llvm-9' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-8',   extras: 'llvm-8' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-7',   extras: 'llvm-7' }
+          - { os: 'focal', baseruby: '2.7', tag: 'clang-6.0', extras: 'llvm-6.0' }
 
           - { os: 'focal',   baseruby: '2.7', tag: 'mingw-w64' }
           - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-arm64' }
@@ -49,34 +47,22 @@ jobs:
     name: Publish ${{ matrix.entry.tag }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/cache@v2
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-      - uses: docker/setup-qemu-action@v1
-      - uses: docker/setup-buildx-action@v1
-      - uses: docker/login-action@v1
+      - uses: docker/setup-qemu-action@v2
+      - uses: docker/setup-buildx-action@v2
+      - uses: docker/login-action@v2
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.ACCESS_TOKEN }}
           registry: ghcr.io
-      - uses: docker/build-push-action@v2
+      - uses: docker/build-push-action@v4
         with:
           build-args: |
             version=${{ matrix.entry.os }}
             baseruby=${{ matrix.entry.baseruby }}
             packages=${{ matrix.entry.tag }} ${{ matrix.entry.extras }}
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new
+          cache-from: type=gha
+          cache-to: type=gha
           platforms: ${{ matrix.entry.platforms || 'linux/amd64,linux/arm64' }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ghcr.io/${{ github.repository }}:${{ matrix.entry.tag }}
-
-      # https://github.com/docker/build-push-action/issues/252
-      # https://github.com/moby/buildkit/issues/1896
-      - run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
