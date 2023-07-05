@@ -25,6 +25,23 @@ ADD assets/99${version}.list /etc/apt/sources.list.d/
 ADD assets/sudoers /etc/sudoers.d/
 RUN chmod 0440 /etc/sudoers.d/*
 
+RUN mkdir /rust
+RUN wget                         \
+      --https-only               \
+      --secure-protocol=TLSv1_2  \
+      --output-document=-        \
+      https://sh.rustup.rs       \
+  | env                          \
+      RUSTUP_HOME=/rust/rustup   \
+      CARGO_HOME=/rust/cargo     \
+    /bin/sh                      \
+      -s                         \
+      --                         \
+      --default-toolchain=stable \
+      --profile=minimal          \
+      --no-modify-path           \
+      -y
+
 FROM ${os}:${version}${variant} as compilers
 ARG baseruby
 ARG packages
@@ -35,12 +52,15 @@ COPY --from=assets /etc/ssl /etc/ssl
 COPY --from=assets /etc/apt /etc/apt
 COPY --from=assets /etc/dpkg /etc/dpkg
 COPY --from=assets /etc/sudoers.d /etc/sudoers.d
+COPY --from=assets /rust /rust
+ENV RUSTUP_HOME=/rust/rustup
+ENV PATH=${PATH}:/rust/cargo/bin
 
 RUN set -ex                                           \
  && apt-get update                                    \
  && apt-get install ${packages}                       \
     libjemalloc-dev openssl libyaml-dev ruby tzdata valgrind sudo docker.io \
-    libreadline-dev \
+    libreadline-dev libcapstone-dev \
  && apt-get build-dep ruby${baseruby}
 
 RUN adduser --disabled-password --gecos '' ci && adduser ci sudo
