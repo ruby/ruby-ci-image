@@ -27,6 +27,7 @@ RUN chmod 0440 /etc/sudoers.d/*
 
 RUN mkdir /rust
 RUN wget                         \
+      --quiet                    \
       --https-only               \
       --secure-protocol=TLSv1_2  \
       --output-document=-        \
@@ -37,6 +38,7 @@ RUN wget                         \
     /bin/sh                      \
       -s                         \
       --                         \
+      --quiet                    \
       --default-toolchain=stable \
       --profile=minimal          \
       --no-modify-path           \
