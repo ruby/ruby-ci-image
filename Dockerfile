@@ -41,6 +41,7 @@ RUN wget                         \
       --quiet                    \
       --default-toolchain=stable \
       --profile=minimal          \
+      --component clippy         \
       --no-modify-path           \
       -y
 
