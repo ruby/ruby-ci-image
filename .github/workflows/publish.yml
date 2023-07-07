@@ -42,10 +42,23 @@ jobs:
           - { os: 'focal', baseruby: '2.7', tag: 'clang-7',   extras: 'llvm-7' }
           - { os: 'focal', baseruby: '2.7', tag: 'clang-6.0', extras: 'llvm-6.0' }
 
-          - { os: 'focal',   baseruby: '2.7', tag: 'mingw-w64' }
-          - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-arm64' }
-          - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-ppc64el' }
-          - { os: 'focal',   baseruby: '2.7', tag: 'crossbuild-essential-s390x' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'mingw-w64' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-amd64' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-arm64' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-armel' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-armhf' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-mips' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-mips64' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-mips64el' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-mips64r6' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-mips64r6el' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-mipsel' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-mipsr6' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-mipsr6el' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-i386' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-ppc64el' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-riscv64' }
+          - { os: 'lunar',   baseruby: '3.1', tag: 'crossbuild-essential-s390x' }
 
     name: Publish ${{ matrix.entry.tag }}
     runs-on: ubuntu-latest
