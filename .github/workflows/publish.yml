@@ -78,10 +78,6 @@ jobs:
             packages=${{ matrix.entry.tag }} ${{ matrix.entry.extras }}
           cache-from: type=gha
           cache-to: type=gha
-          # Concurrently running multiple Ruby builds makes it rather slower
-          config-inline: |
-            [worker.oci]
-              max-parallelism = 1
           platforms: ${{ matrix.entry.platforms || 'linux/amd64,linux/arm64' }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
