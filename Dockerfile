@@ -65,7 +65,7 @@ COPY build_ruby.sh /tmp
 RUN set -ex                                           \
  && apt-get update                                    \
  && apt-get install ${packages}                       \
-    libjemalloc-dev openssl libyaml-dev tzdata valgrind wget ca-certificates sudo docker.io \
+    libjemalloc-dev openssl libyaml-dev zlib1g-dev tzdata valgrind wget ca-certificates sudo docker.io \
     libreadline-dev libcapstone-dev \
  && apt-get build-dep ruby${system_ruby} \
  && bash -c "if [[ -n '$system_ruby' ]]; then apt-get install 'ruby${system_ruby}'; fi" \
