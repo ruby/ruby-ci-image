@@ -59,6 +59,7 @@ jobs:
           password: ${{ secrets.ACCESS_TOKEN }}
           registry: ghcr.io
         if: ${{ github.actor != 'dependabot[bot]' }}
+
       - name: Resolve build_ruby version
         uses: ruby/setup-ruby@22fdc77bf4148f810455b226c90fb81b5cbc00a7 # v1.171.0
         with:
@@ -67,8 +68,9 @@ jobs:
         if: ${{ matrix.entry.build_ruby != '' }}
       - name: Set build_ruby version
         id: build_ruby
-        run: ruby -e 'puts "::set-output name=version::#{RUBY_VERSION}"'
+        run: ruby -e 'puts "version=#{RUBY_VERSION}"' >> $GITHUB_OUTPUT
         if: ${{ matrix.entry.build_ruby != '' }}
+
       - uses: docker/build-push-action@v5
         with:
           build-args: |
