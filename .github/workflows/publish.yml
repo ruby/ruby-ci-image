@@ -47,11 +47,11 @@ jobs:
           - { os: 'focal',  build_ruby: '3.0', tag: 'crossbuild-essential-arm64' }
           - { os: 'focal',  build_ruby: '3.0', tag: 'crossbuild-essential-ppc64el' }
           - { os: 'focal',  build_ruby: '3.0', tag: 'crossbuild-essential-s390x' }
-        platforms:
-          - 'linux/amd64'
-          - 'linux/arm64'
+        arch:
+          - { platforms: 'linux/amd64', name: 'x86_64' }
+          - { platforms: 'linux/arm64', name: 'arm64' }
 
-    name: Publish ${{ matrix.entry.tag }} ${{ matrix.platforms }}
+    name: ${{ matrix.entry.tag }} ${{ matrix.arch.name }} ${{ matrix.entry.build_ruby != '' && 'build' || 'system' }}
     runs-on: ubuntu-latest
     steps:
       - uses: docker/setup-qemu-action@v2
@@ -80,7 +80,7 @@ jobs:
             packages=${{ matrix.entry.tag }} ${{ matrix.entry.extras }}
           cache-from: type=gha
           cache-to: type=gha
-          platforms: ${{ matrix.platforms }}
+          platforms: ${{ matrix.arch.platforms }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ghcr.io/${{ github.repository }}:${{ matrix.entry.tag }}
