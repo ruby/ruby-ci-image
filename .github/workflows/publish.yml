@@ -76,8 +76,8 @@ jobs:
             build_ruby=${{ steps.build_ruby.outputs.version }}
             system_ruby=${{ matrix.entry.system_ruby }}
             packages=${{ matrix.entry.tag }} ${{ matrix.entry.extras }}
-          cache-from: type=gha
-          cache-to: type=gha
+          cache-from: type=gha,mode=max
+          cache-to: type=gha,mode=max,ignore-error=true
           platforms: ${{ matrix.entry.platforms || 'linux/amd64,linux/arm64' }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
