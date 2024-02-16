@@ -83,5 +83,3 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ghcr.io/${{ github.repository }}:${{ matrix.entry.tag }}
-        # clang-18 is gone for some reason, but we hope it'll come back at some point.
-        continue-on-error: ${{ matrix.entry.tag == 'clang-18' }}
