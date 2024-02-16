@@ -9,7 +9,7 @@ on:
       - master
   schedule:
 
-    # Everyday Wednesday on 01:32 UTC.  This timing is handy because while
+    # Every Wednesday on 01:32 UTC.  This timing is handy because while
     # European countries are in midnight, American countries are still in
     # their evening and Asian countries are in the next morning.
     - cron: '32 1 * * 3'
