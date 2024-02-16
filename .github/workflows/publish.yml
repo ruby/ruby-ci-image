@@ -21,21 +21,20 @@ jobs:
       matrix:
         # Ruby 3.4 requires BASERUBY 3.0
         entry:
-          - { os: 'lunar', system_ruby: '3.1', tag: 'gcc-13',  extras: 'g++-13' }
-          - { os: 'jammy', system_ruby: '3.0', tag: 'gcc-12',  extras: 'g++-12' }
-          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-11',  extras: 'g++-11' }
-          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-10',  extras: 'g++-10' }
-          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-9',   extras: 'g++-9' }
-          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-8',   extras: 'g++-8' }
-          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-7',   extras: 'g++-7' }
+          - { os: 'lunar', system_ruby: '3.1', tag: 'gcc-13', extras: 'g++-13' }
+          - { os: 'jammy', system_ruby: '3.0', tag: 'gcc-12', extras: 'g++-12' }
+          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-11', extras: 'g++-11' }
+          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-10', extras: 'g++-10' }
+          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-9',  extras: 'g++-9' }
+          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-8',  extras: 'g++-8' }
+          - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-7',  extras: 'g++-7' }
 
-          # The clang-14, 13 arm64 are not available.
-          - { os: 'jammy', system_ruby: '3.0', tag: 'clang-18',  extras: 'llvm-18', platforms: 'linux/amd64' }
-          - { os: 'jammy', system_ruby: '3.0', tag: 'clang-17',  extras: 'llvm-17', platforms: 'linux/amd64' }
-          - { os: 'jammy', system_ruby: '3.0', tag: 'clang-16',  extras: 'llvm-16', platforms: 'linux/amd64' }
-          - { os: 'focal',  build_ruby: '3.0', tag: 'clang-15',  extras: 'llvm-15', platforms: 'linux/amd64' }
-          - { os: 'focal',  build_ruby: '3.0', tag: 'clang-14',  extras: 'llvm-14', platforms: 'linux/amd64' }
-          - { os: 'focal',  build_ruby: '3.0', tag: 'clang-13',  extras: 'llvm-13', platforms: 'linux/amd64' }
+          - { os: 'jammy', system_ruby: '3.0', tag: 'clang-18',  extras: 'llvm-18' }
+          - { os: 'jammy', system_ruby: '3.0', tag: 'clang-17',  extras: 'llvm-17' }
+          - { os: 'jammy', system_ruby: '3.0', tag: 'clang-16',  extras: 'llvm-16' }
+          - { os: 'focal',  build_ruby: '3.0', tag: 'clang-15',  extras: 'llvm-15' }
+          - { os: 'focal',  build_ruby: '3.0', tag: 'clang-14',  extras: 'llvm-14' }
+          - { os: 'focal',  build_ruby: '3.0', tag: 'clang-13',  extras: 'llvm-13' }
           - { os: 'focal',  build_ruby: '3.0', tag: 'clang-12',  extras: 'llvm-12' }
           - { os: 'focal',  build_ruby: '3.0', tag: 'clang-11',  extras: 'llvm-11' }
           - { os: 'focal',  build_ruby: '3.0', tag: 'clang-10',  extras: 'llvm-10' }
@@ -79,7 +78,7 @@ jobs:
             packages=${{ matrix.entry.tag }} ${{ matrix.entry.extras }}
           cache-from: type=gha,mode=max
           cache-to: type=gha,mode=max,ignore-error=true
-          platforms: ${{ matrix.entry.platforms || 'linux/amd64,linux/arm64' }}
+          platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ghcr.io/${{ github.repository }}:${{ matrix.entry.tag }}
