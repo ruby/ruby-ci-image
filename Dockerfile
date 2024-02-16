@@ -1,7 +1,8 @@
 ARG os=ubuntu
 ARG version=
 ARG variant=
-ARG baseruby=
+ARG build_ruby=
+ARG system_ruby=
 ARG packages=
 
 FROM ${os}:${version}${variant} as assets
@@ -46,7 +47,8 @@ RUN wget                         \
       -y
 
 FROM ${os}:${version}${variant} as compilers
-ARG baseruby
+ARG build_ruby
+ARG system_ruby
 ARG packages
 
 LABEL maintainer=shyouhei@ruby-lang.org
@@ -59,12 +61,16 @@ COPY --from=assets /rust /rust
 ENV RUSTUP_HOME=/rust/rustup
 ENV PATH=${PATH}:/rust/cargo/bin
 
+COPY build_ruby.sh /tmp
 RUN set -ex                                           \
  && apt-get update                                    \
  && apt-get install ${packages}                       \
-    libjemalloc-dev openssl libyaml-dev ruby tzdata valgrind sudo docker.io \
+    libjemalloc-dev openssl libyaml-dev tzdata valgrind wget ca-certificates sudo docker.io \
     libreadline-dev libcapstone-dev \
- && apt-get build-dep ruby${baseruby}
+ && apt-get build-dep ruby${system_ruby} \
+ && bash -c "if [[ -n '$system_ruby' ]]; then apt-get install 'ruby${system_ruby}'; fi" \
+ && bash -c "if [[ -n '$build_ruby' ]]; then /tmp/build_ruby.sh '$build_ruby'; fi" \
+ && rm /tmp/build_ruby.sh
 
 RUN adduser --disabled-password --gecos '' ci && adduser ci sudo
 
