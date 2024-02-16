@@ -49,7 +49,7 @@ jobs:
           - { os: 'focal',  build_ruby: '3.0', tag: 'crossbuild-essential-ppc64el' }
           - { os: 'focal',  build_ruby: '3.0', tag: 'crossbuild-essential-s390x' }
 
-    name: Publish ${{ matrix.entry.tag }}
+    name: ${{ matrix.entry.tag }} ${{ matrix.entry.build_ruby != '' && 'build' || 'system' }}
     runs-on: ubuntu-latest
     steps:
       - uses: docker/setup-qemu-action@v3
