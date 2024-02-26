@@ -65,7 +65,7 @@ COPY build_ruby.sh /tmp
 RUN set -ex                                           \
  && apt-get update                                    \
  && apt-get install ${packages}                       \
-    autoconf patch build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev \
+    autoconf patch bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev \
     libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev \
     libjemalloc-dev tzdata valgrind wget ca-certificates sudo docker.io libcapstone-dev \
  && bash -c "if [[ -n '$system_ruby' ]]; then apt-get install 'ruby${system_ruby}'; fi" \
