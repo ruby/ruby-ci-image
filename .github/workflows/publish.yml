@@ -29,6 +29,7 @@ jobs:
           - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-8',  extras: 'g++-8' }
           - { os: 'focal',  build_ruby: '3.0', tag: 'gcc-7',  extras: 'g++-7' }
 
+          - { os: 'jammy', system_ruby: '3.0', tag: 'clang-19',  extras: 'llvm-19' }
           - { os: 'jammy', system_ruby: '3.0', tag: 'clang-18',  extras: 'llvm-18' }
           - { os: 'jammy', system_ruby: '3.0', tag: 'clang-17',  extras: 'llvm-17' }
           - { os: 'jammy', system_ruby: '3.0', tag: 'clang-16',  extras: 'llvm-16' }
