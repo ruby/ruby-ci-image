@@ -1,19 +1,19 @@
-deb http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu focal main
-deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu focal  main
-deb http://apt.llvm.org/focal/ llvm-toolchain-focal-9 main
-deb http://apt.llvm.org/focal/ llvm-toolchain-focal-10 main
-deb http://apt.llvm.org/focal/ llvm-toolchain-focal-11 main
-deb http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main
-deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main
-deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main
-deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main
+deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu focal main
+deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu focal  main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-9 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-10 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-11 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main
 
-deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu focal main
-deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu focal main
-deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-9 main
-deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-10 main
-deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-11 main
-deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main
-deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main
-deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main
-deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main
+deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu focal main
+deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu focal main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-9 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-10 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-11 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main

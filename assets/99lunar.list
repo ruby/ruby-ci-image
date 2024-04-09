@@ -1,7 +1,7 @@
-deb http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu lunar main
-deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu lunar main
-deb http://apt.llvm.org/lunar/ llvm-toolchain-lunar main
+deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu lunar main
+deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu lunar main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/lunar/ llvm-toolchain-lunar main
 
-deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu lunar main
-deb-src http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu lunar main
-deb-src http://apt.llvm.org/lunar/ llvm-toolchain-lunar main
+deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu lunar main
+deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu lunar main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/lunar/ llvm-toolchain-lunar main

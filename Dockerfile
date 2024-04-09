@@ -12,17 +12,14 @@ ARG variant
 
 RUN apt-get update
 RUN apt-get install -y wget gnupg2 ca-certificates sudo
-RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key \
-  | apt-key add -
-RUN apt-key adv \
-    --keyserver hkp://keyserver.ubuntu.com:80 \
-    --recv-keys 60C317803A41BA51845E371A1E9377A2BA9EF27F
 RUN grep '^deb ' /etc/apt/sources.list \
   | sed 's/^deb /deb-src /' \
   | tee /etc/apt/sources.list.d/deb-src.list
 ADD assets/99apt.conf /etc/apt/apt.conf.d/
 ADD assets/99dpkg.cfg /etc/dpkg/dpkg.cfg.d/
 ADD assets/99${version}.list /etc/apt/sources.list.d/
+ADD assets/llvm-snapshot.gpg.key /etc/apt/keyrings/llvm-snapshot.gpg.key.asc
+ADD assets/60C317803A41BA51845E371A1E9377A2BA9EF27F.asc /etc/apt/keyrings/ubuntu-toolchain-r.asc
 ADD assets/sudoers /etc/sudoers.d/
 RUN chmod 0440 /etc/sudoers.d/*
 
