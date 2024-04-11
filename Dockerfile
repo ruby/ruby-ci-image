@@ -1,8 +1,6 @@
 ARG os=ubuntu
 ARG version=
 ARG variant=
-ARG build_ruby=
-ARG system_ruby=
 ARG packages=
 
 FROM ${os}:${version}${variant} as assets
@@ -20,6 +18,7 @@ ADD assets/99dpkg.cfg /etc/dpkg/dpkg.cfg.d/
 ADD assets/99${version}.list /etc/apt/sources.list.d/
 ADD assets/llvm-snapshot.gpg.key /etc/apt/keyrings/llvm-snapshot.gpg.key.asc
 ADD assets/60C317803A41BA51845E371A1E9377A2BA9EF27F.asc /etc/apt/keyrings/ubuntu-toolchain-r.asc
+ADD assets/3F0F56A8.pub.txt /etc/apt/keyrings/sorah.asc
 ADD assets/sudoers /etc/sudoers.d/
 RUN chmod 0440 /etc/sudoers.d/*
 
@@ -44,8 +43,6 @@ RUN wget                         \
       -y
 
 FROM ${os}:${version}${variant} as compilers
-ARG build_ruby
-ARG system_ruby
 ARG packages
 
 LABEL maintainer=shyouhei@ruby-lang.org
@@ -58,16 +55,13 @@ COPY --from=assets /rust /rust
 ENV RUSTUP_HOME=/rust/rustup
 ENV PATH=${PATH}:/rust/cargo/bin
 
-COPY build_ruby.sh /tmp
 RUN set -ex                                           \
  && apt-get update                                    \
  && apt-get install ${packages}                       \
     autoconf patch bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev \
     libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev \
     libjemalloc-dev tzdata valgrind wget ca-certificates sudo docker.io libcapstone-dev \
- && bash -c "if [[ -n '$system_ruby' ]]; then apt-get install 'ruby${system_ruby}'; fi" \
- && bash -c "if [[ -n '$build_ruby' ]]; then /tmp/build_ruby.sh '$build_ruby'; fi" \
- && rm /tmp/build_ruby.sh
+    ruby
 
 RUN adduser --disabled-password --gecos '' ci && adduser ci sudo
 
