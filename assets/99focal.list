@@ -7,6 +7,7 @@ deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/
 deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main
 deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main
 deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main
+deb [signed-by=/etc/apt/keyrings/sorah.asc] https://cache.ruby-lang.org/lab/sorah/deb/ focal main
 
 deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu focal main
 deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu focal main
@@ -17,3 +18,4 @@ deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.
 deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main
 deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main
 deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main
+deb-src [signed-by=/etc/apt/keyrings/sorah.asc] https://cache.ruby-lang.org/lab/sorah/deb/ focal main
