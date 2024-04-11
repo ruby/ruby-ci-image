@@ -1,8 +1,6 @@
 ARG os=ubuntu
 ARG version=
 ARG variant=
-ARG build_ruby=
-ARG system_ruby=
 ARG packages=
 
 FROM ${os}:${version}${variant} as assets
@@ -45,8 +43,6 @@ RUN wget                         \
       -y
 
 FROM ${os}:${version}${variant} as compilers
-ARG build_ruby
-ARG system_ruby
 ARG packages
 
 LABEL maintainer=shyouhei@ruby-lang.org
