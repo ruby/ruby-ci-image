@@ -1,9 +1,9 @@
 ARG os=ubuntu
-ARG version=
+ARG version=latest
 ARG variant=
 ARG packages=
 
-FROM ${os}:${version}${variant} as assets
+FROM ${os}:${version}${variant} AS assets
 ARG os
 ARG version
 ARG variant
@@ -42,7 +42,7 @@ RUN wget                         \
       --no-modify-path           \
       -y
 
-FROM ${os}:${version}${variant} as compilers
+FROM ${os}:${version}${variant} AS compilers
 ARG packages
 
 LABEL maintainer=shyouhei@ruby-lang.org
