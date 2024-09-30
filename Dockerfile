@@ -1,5 +1,5 @@
 ARG os=ubuntu
-ARG version=
+ARG version=latest
 ARG variant=
 ARG packages=
 
