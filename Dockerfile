@@ -71,7 +71,8 @@ RUN apt-get install -y --no-install-recommends \
   python3-setuptools \
   python3-pip \
   pipx \
-  openjdk-8-jdk
+  openjdk-8-jdk \
+  git
 ENV PATH="$PATH:/root/.local/bin"
 RUN pipx install launchable
 
