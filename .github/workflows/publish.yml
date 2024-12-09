@@ -22,7 +22,7 @@ jobs:
         # Ruby 3.4 requires BASERUBY 3.0
         entry:
           - { os: 'noble', tag: 'gcc-14', extras: 'g++-14' }
-          - { os: 'lunar', tag: 'gcc-13', extras: 'g++-13' }
+          - { os: 'noble', tag: 'gcc-13', extras: 'g++-13' }
           - { os: 'jammy', tag: 'gcc-12', extras: 'g++-12' }
           - { os: 'jammy', tag: 'gcc-11', extras: 'g++-11' }
           - { os: 'jammy', tag: 'gcc-10', extras: 'g++-10' }
