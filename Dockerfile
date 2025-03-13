@@ -3,7 +3,7 @@ ARG version=latest
 ARG variant=
 ARG packages=
 
-FROM ${os}:${version}${variant} AS assets
+FROM ghcr.io/ruby/${os}:${version}${variant} AS assets
 ARG os
 ARG version
 ARG variant
@@ -42,7 +42,7 @@ RUN wget                         \
       --no-modify-path           \
       -y
 
-FROM ${os}:${version}${variant} AS compilers
+FROM ghcr.io/ruby/${os}:${version}${variant} AS compilers
 ARG packages
 
 LABEL maintainer=shyouhei@ruby-lang.org
