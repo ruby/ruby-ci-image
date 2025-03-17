@@ -65,7 +65,7 @@ jobs:
         if: ${{ github.actor != 'dependabot[bot]' && github.event.pull_request.head.repo.fork == false }}
 
       - name: Resolve build_ruby version
-        uses: ruby/setup-ruby@277ba2a127aba66d45bad0fa2dc56f80dbfedffa # v1.222.0
+        uses: ruby/setup-ruby@922ebc4c5262cd14e07bb0e1db020984b6c064fe # v1.226.0
         with:
           ruby-version: '${{ matrix.entry.build_ruby }}'
           bundler: none
