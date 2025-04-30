@@ -17,7 +17,7 @@ ADD assets/99apt.conf /etc/apt/apt.conf.d/
 ADD assets/99dpkg.cfg /etc/dpkg/dpkg.cfg.d/
 ADD assets/99${version}.list /etc/apt/sources.list.d/
 ADD assets/llvm-snapshot.gpg.key /etc/apt/keyrings/llvm-snapshot.gpg.key.asc
-ADD assets/60C317803A41BA51845E371A1E9377A2BA9EF27F.asc /etc/apt/keyrings/ubuntu-toolchain-r.asc
+ADD assets/c8ec952e2a0e1fbdc5090f6a2c277a0a352154e5.asc /etc/apt/keyrings/ubuntu-toolchain-r.asc
 ADD assets/3F0F56A8.pub.txt /etc/apt/keyrings/sorah.asc
 ADD assets/sudoers /etc/sudoers.d/
 RUN chmod 0440 /etc/sudoers.d/*

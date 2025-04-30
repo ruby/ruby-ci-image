@@ -1,0 +1,7 @@
+deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu plucky main
+deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu plucky main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/plucky/ llvm-toolchain-plucky main
+
+deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu plucky main
+deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu plucky main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/plucky/ llvm-toolchain-plucky main
