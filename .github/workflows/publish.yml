@@ -31,7 +31,8 @@ jobs:
           - { os: 'focal', tag: 'gcc-8',  extras: 'g++-8' }
           - { os: 'focal', tag: 'gcc-7',  extras: 'g++-7' }
 
-          - { os: 'noble', tag: 'clang-21',  extras: 'llvm-21' }
+          - { os: 'jammy', tag: 'clang-22',  extras: 'llvm-22' }
+          - { os: 'jammy', tag: 'clang-21',  extras: 'llvm-21' }
           - { os: 'jammy', tag: 'clang-20',  extras: 'llvm-20' }
           - { os: 'jammy', tag: 'clang-19',  extras: 'llvm-19' }
           - { os: 'jammy', tag: 'clang-18',  extras: 'llvm-18' }
