@@ -1,7 +1,17 @@
 deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu noble main
 deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu noble main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-17 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-18 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-19 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-20 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-21 main
 deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble main
 
 deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu noble main
 deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu noble main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-17 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-18 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-19 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-20 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble-21 main
 deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/noble/ llvm-toolchain-noble main
