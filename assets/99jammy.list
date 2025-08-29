@@ -5,6 +5,7 @@ deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/
 deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main
 deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main
 deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/jammy/ llvm-toolchain-jammy main
+deb [signed-by=/etc/apt/keyrings/sorah.asc] https://cache.ruby-lang.org/lab/sorah/deb/ jammy main
 
 deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu jammy main
 deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu jammy main
@@ -13,3 +14,4 @@ deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.
 deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main
 deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main
 deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/jammy/ llvm-toolchain-jammy main
+deb-src [signed-by=/etc/apt/keyrings/sorah.asc] https://cache.ruby-lang.org/lab/sorah/deb/ jammy main
