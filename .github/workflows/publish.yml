@@ -21,6 +21,7 @@ jobs:
       matrix:
         # Ruby 3.4 requires BASERUBY 3.0
         entry:
+          - { os: 'plucky', tag: 'gcc-16', extras: 'g++-16' }
           - { os: 'plucky', tag: 'gcc-15', extras: 'g++-15' }
           - { os: 'noble', tag: 'gcc-14', extras: 'g++-14' }
           - { os: 'noble', tag: 'gcc-13', extras: 'g++-13' }
