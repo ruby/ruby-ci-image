@@ -78,7 +78,7 @@ jobs:
         run: ruby -e 'puts "version=#{RUBY_VERSION}"' >> $GITHUB_OUTPUT
         if: ${{ matrix.entry.build_ruby != '' }}
 
-      - uses: docker/build-push-action@v6
+      - uses: docker/build-push-action@v7
         with:
           build-args: |
             version=${{ matrix.entry.os }}
