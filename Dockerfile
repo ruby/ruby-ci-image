@@ -48,6 +48,7 @@ ARG packages
 LABEL maintainer=shyouhei@ruby-lang.org
 ENV DEBIAN_FRONTEND=noninteractive
 COPY --from=assets /etc/ssl /etc/ssl
+COPY --from=assets /usr/lib/ssl /usr/lib/ssl
 COPY --from=assets /etc/apt /etc/apt
 COPY --from=assets /etc/dpkg /etc/dpkg
 COPY --from=assets /etc/sudoers.d /etc/sudoers.d

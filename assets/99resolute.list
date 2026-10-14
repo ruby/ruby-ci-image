@@ -1,0 +1,13 @@
+deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu resolute main
+deb [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu resolute main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/resolute/ llvm-toolchain-resolute-21 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/resolute/ llvm-toolchain-resolute-22 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/resolute/ llvm-toolchain-resolute-23 main
+deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/resolute/ llvm-toolchain-resolute main
+
+deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/ppa/ubuntu resolute main
+deb-src [signed-by=/etc/apt/keyrings/ubuntu-toolchain-r.asc] http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu resolute main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/resolute/ llvm-toolchain-resolute-21 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/resolute/ llvm-toolchain-resolute-22 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/resolute/ llvm-toolchain-resolute-23 main
+deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg.key.asc] http://apt.llvm.org/resolute/ llvm-toolchain-resolute main

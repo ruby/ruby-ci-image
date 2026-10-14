@@ -21,29 +21,32 @@ jobs:
       matrix:
         # Ruby 3.4 requires BASERUBY 3.0
         entry:
-          - { os: 'plucky', tag: 'gcc-15', extras: 'g++-15' }
-          - { os: 'noble', tag: 'gcc-14', extras: 'g++-14' }
-          - { os: 'noble', tag: 'gcc-13', extras: 'g++-13' }
-          - { os: 'jammy', tag: 'gcc-12', extras: 'g++-12' }
-          - { os: 'jammy', tag: 'gcc-11', extras: 'g++-11' }
-          - { os: 'jammy', tag: 'gcc-10', extras: 'g++-10' }
-          - { os: 'jammy', tag: 'gcc-9',  extras: 'g++-9' }
+          - { os: 'resolute', tag: 'gcc-16', extras: 'g++-16' }
+          - { os: 'resolute', tag: 'gcc-15', extras: 'g++-15' }
+          - { os: 'resolute', tag: 'gcc-14', extras: 'g++-14' }
+          - { os: 'resolute', tag: 'gcc-13', extras: 'g++-13' }
+          - { os: 'resolute', tag: 'gcc-12', extras: 'g++-12' }
+          # ruby/ruby's annocheck installs Ruby 3.1 with ruby/setup-ruby in this image, which has no build for resolute.
+          - { os: 'noble', tag: 'gcc-11', extras: 'g++-11' }
+          - { os: 'noble', tag: 'gcc-10', extras: 'g++-10' }
+          - { os: 'noble', tag: 'gcc-9',  extras: 'g++-9' }
           - { os: 'focal', tag: 'gcc-8',  extras: 'g++-8' }
           - { os: 'focal', tag: 'gcc-7',  extras: 'g++-7' }
 
-          - { os: 'noble', tag: 'clang-23',  extras: 'llvm-23' }
-          - { os: 'noble', tag: 'clang-22',  extras: 'llvm-22' }
-          - { os: 'noble', tag: 'clang-21',  extras: 'llvm-21' }
-          - { os: 'noble', tag: 'clang-20',  extras: 'llvm-20' }
-          - { os: 'noble', tag: 'clang-19',  extras: 'llvm-19' }
-          - { os: 'noble', tag: 'clang-18',  extras: 'llvm-18' }
-          - { os: 'noble', tag: 'clang-17',  extras: 'llvm-17' }
-          - { os: 'jammy', tag: 'clang-16',  extras: 'llvm-16' }
-          - { os: 'jammy', tag: 'clang-15',  extras: 'llvm-15' }
-          - { os: 'jammy', tag: 'clang-14',  extras: 'llvm-14' }
+          - { os: 'resolute', tag: 'clang-24',  extras: 'llvm-24' }
+          - { os: 'resolute', tag: 'clang-23',  extras: 'llvm-23' }
+          - { os: 'resolute', tag: 'clang-22',  extras: 'llvm-22' }
+          - { os: 'resolute', tag: 'clang-21',  extras: 'llvm-21' }
+          - { os: 'resolute', tag: 'clang-20',  extras: 'llvm-20' }
+          - { os: 'resolute', tag: 'clang-19',  extras: 'llvm-19' }
+          - { os: 'resolute', tag: 'clang-18',  extras: 'llvm-18' }
+          - { os: 'resolute', tag: 'clang-17',  extras: 'llvm-17' }
+          - { os: 'noble', tag: 'clang-16',  extras: 'llvm-16' }
+          - { os: 'noble', tag: 'clang-15',  extras: 'llvm-15' }
+          - { os: 'noble', tag: 'clang-14',  extras: 'llvm-14' }
           - { os: 'jammy', tag: 'clang-13',  extras: 'llvm-13' }
-          - { os: 'focal', tag: 'clang-12',  extras: 'llvm-12' }
-          - { os: 'focal', tag: 'clang-11',  extras: 'llvm-11' }
+          - { os: 'jammy', tag: 'clang-12',  extras: 'llvm-12' }
+          - { os: 'jammy', tag: 'clang-11',  extras: 'llvm-11' }
           - { os: 'focal', tag: 'clang-10',  extras: 'llvm-10' }
           - { os: 'focal', tag: 'clang-9',   extras: 'llvm-9' }
           - { os: 'focal', tag: 'clang-8',   extras: 'llvm-8' }
