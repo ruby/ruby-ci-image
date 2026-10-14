@@ -21,6 +21,7 @@ jobs:
       matrix:
         # Ruby 3.4 requires BASERUBY 3.0
         entry:
+          - { os: 'resolute', tag: 'gcc-16', extras: 'g++-16' }
           - { os: 'resolute', tag: 'gcc-15', extras: 'g++-15' }
           - { os: 'resolute', tag: 'gcc-14', extras: 'g++-14' }
           - { os: 'resolute', tag: 'gcc-13', extras: 'g++-13' }
@@ -32,6 +33,7 @@ jobs:
           - { os: 'focal', tag: 'gcc-8',  extras: 'g++-8' }
           - { os: 'focal', tag: 'gcc-7',  extras: 'g++-7' }
 
+          - { os: 'resolute', tag: 'clang-24',  extras: 'llvm-24' }
           - { os: 'resolute', tag: 'clang-23',  extras: 'llvm-23' }
           - { os: 'resolute', tag: 'clang-22',  extras: 'llvm-22' }
           - { os: 'resolute', tag: 'clang-21',  extras: 'llvm-21' }
